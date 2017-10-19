@@ -9,6 +9,7 @@
       <tr>
         <td><%= link_to order.id, order_path(order)%></td>
         <td><%= order.created_at %></td>
+        <%= render partial: "status", locals: {order: order} %>
       </tr>
     <% end %>
   </table>

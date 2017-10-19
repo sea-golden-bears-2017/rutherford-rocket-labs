@@ -1,0 +1,13 @@
+<% if !order.submitted %>
+  <td class="order-status unsubmitted">
+    <%= link_to "unsubmitted", order_path(order) %>
+  </td>
+<% elsif !order.processed %>
+  <td class="order-status process">
+    <%= link_to "process", order_path(order) %>
+  </td>
+<% else %>
+  <td class="order-status processed">
+    <%= link_to "processed", order_path(order) %>
+  </td>
+<% end %>
