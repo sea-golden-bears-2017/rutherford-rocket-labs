@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rrl</title>
+    <title>Rutherford Rocket Labs</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Kanit">
   </head>
 
   <body>
     <header>
+      <div class="banner">
+        <div class="banner-stripe" id="banner-top"></div>
+        <div class="banner-stripe" id="banner-mid"></div>
+        <div class="banner-stripe" id="banner-bot"></div>
+      </div>
+      <div class="brandname">RRL</div>
+      <div class="logo">  <%= image_tag("logo.png") %> </div>
 
     </header>
     <nav>
       <ul class="nav">
         <li><a href="/">Home</a></li>
         <li><a href="#">Warehouses</a></li>
-        <li><a href="#">Parts</a></li>
+        <li><a href="/parts">Parts</a></li>
         <li><a href="#">New Order</a></li>
         <li><a href="#">Order</a></li>
         <li><a href="#">New Part</a></li>

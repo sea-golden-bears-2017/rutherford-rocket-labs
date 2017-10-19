@@ -1,0 +1,16 @@
+<div class="">
+  <h1>Parts</h1>
+  <table>
+    <tr>
+      <th>Part #</th>
+      <th>Part Name</th>
+      <th>Location</th>
+    </tr>
+    <% @parts.each do |part| %>
+      <tr>
+        <td> <%= part.id %></td>
+        <td> <%= part.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -14,6 +14,54 @@
  *= require_self
  */
 
+ .banner {
+   display: inline-block;
+   width: 70%;
+   margin-top: 20px;
+   margin-bottom: -13px;
+ }
+
+ .logo {
+   display: inline-block;
+   width: 11%;
+ }
+
+
+ .banner-stripe {
+   margin: 15px;
+   height: 13px;
+   border-radius: 25px;
+ }
+
+ .brandname{
+   font-family: 'Kanit', medium, italic;
+   font-size: 70px;
+   font-style: italic;
+   color: #FF00FF;
+   display: inline-block;
+   /*width: 18%;*/
+   padding-bottom: 20px;
+ }
+
+div#banner-top {
+  width: 75%;
+  border: solid, lime;
+  background-color: lime;
+}
+
+div#banner-mid {
+  width: 85%;
+  border: solid, teal;
+  background-color: teal;
+}
+
+div#banner-bot {
+  width: 95%;
+  border: solid, #FF00FF;
+  background-color: #FF00FF;
+}
+
+
 html {
   box-sizing: border-box;
 }
@@ -34,6 +82,8 @@ nav {
   margin-left: 0;
   width: 15%;
   min-width: 111px;
+  border-right: solid 1px #FF00FF;
+  text-align: right;
 }
 
 ul {
@@ -61,4 +111,19 @@ a {
   /*border: 1px solid black;*/
   margin: 0 auto;
   text-align: center;
+}
+
+
+th {
+  border-bottom: solid 1px #FF00FF;
+  padding: 5px;
+}
+
+tr:hover {background-color: #FFF4FF;}
+tr:hover:nth-child(-n+1) {background-color: white;}
+
+td {
+  padding: 5px;
+  border-bottom: solid 1px lime;
+  text-align: left;
 }
