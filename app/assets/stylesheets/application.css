@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .banner-stripe {
+   padding: 10px;
+   margin: 10px;
+   height: 10px;
+ }
+
+div#banner-top {
+  width: 50%;
+  border: solid, lime;
+  background-color: lime;
+}
+
+div#banner-mid {
+  width: 62.5%;
+  border: solid, teal;
+  background-color: teal;
+}
+
+div#banner-bot {
+  width: 75%;
+  border: solid, #FF00FF;
+  background-color: #FF00FF;
+}

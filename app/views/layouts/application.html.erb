@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rrl</title>
+    <title>Rutherford Rocket Labs</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+  <header>
+    <div class="banner">
+      <div class="banner-stripe" id="banner-top"></div>
+      <div class="banner-stripe" id="banner-mid"></div>
+      <div class="banner-stripe" id="banner-bot"></div>
+    </div>
+  </header>
 
   <body>
     <%= yield %>
