@@ -115,16 +115,21 @@ a {
 }
 
 
-th {
+.list th{
   border-bottom: solid 1px #FF00FF;
   padding: 5px;
 }
 
-tr:hover {background-color: #FFF4FF;}
-tr:hover:nth-child(-n+1) {background-color: white;}
+.list tr:hover {background-color: #FFF4FF;}
+.list tr:hover:nth-child(-n+1) {background-color: white;}
 
-td {
+.list td {
   padding: 5px;
   border-bottom: solid 1px lime;
   text-align: left;
+}
+
+.form-div{
+  width: 300px;
+  margin: auto;
 }

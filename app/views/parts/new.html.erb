@@ -1,14 +1,13 @@
 <h1>Add part to catalog</h1>
 
-<%= form_for :part, url: parts_path do |f| %>
+<div class="form-div">
+  <%= form_for :part, url: parts_path do |f| %>
   <%= f.label :name %>:
-  <%= f.text_field :name %><br />
-
+  <%= f.text_field :name %><br/ >
   <%= f.label :min %>:
-  <%= f.number_field :min %><br />
-
+  <%= f.number_field :min %><br/ >
   <%= f.label :max %>:
-  <%= f.number_field :max %><br />
+  <%= f.number_field :max %><br/ >
   <%= f.submit %>
-
-<% end %>
+  <% end %>
+</div>
