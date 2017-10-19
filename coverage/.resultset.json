@@ -16,14 +16,14 @@
         1,
         null
       ],
-      "/Users/apprentice/rocket-labs/rrl/app/models/part.rb": [
+      "/Users/apprentice/rocket-labs/rrl/app/models/orders_part.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/apprentice/rocket-labs/rrl/app/models/orders_part.rb": [
+      "/Users/apprentice/rocket-labs/rrl/app/models/part.rb": [
         1,
         1,
         1,
@@ -58,6 +58,6 @@
         0
       ]
     },
-    "timestamp": 1508376461
+    "timestamp": 1508376913
   }
 }
