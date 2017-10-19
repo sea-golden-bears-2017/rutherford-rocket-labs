@@ -30,11 +30,21 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :test do
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'poltergeist'
 
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
 
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 
-group :development, :test do
+group :development,  :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
