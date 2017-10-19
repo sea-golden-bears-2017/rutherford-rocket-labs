@@ -4,6 +4,7 @@ class PartsController < ApplicationController
   end
 
   def new
+    @part = Part.new
   end
 
   def create
@@ -11,7 +12,7 @@ class PartsController < ApplicationController
     if @part.save
       redirect_to parts_path
     else
-      render new_part_path
+      render 'new'
     end
 
   end

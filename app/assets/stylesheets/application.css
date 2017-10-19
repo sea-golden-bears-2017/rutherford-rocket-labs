@@ -133,3 +133,5 @@ a {
   width: 300px;
   margin: auto;
 }
+
+.field_with_errors { display: inline; }
