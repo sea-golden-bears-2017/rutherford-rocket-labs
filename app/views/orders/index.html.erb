@@ -1,6 +1,6 @@
 <div class="">
   <h1>Orders</h1>
-  <table>
+  <table class="list">
     <tr>
       <th>Order #</th>
       <th>Date Created</th>
@@ -9,6 +9,7 @@
       <tr>
         <td><%= link_to order.id, order_path(order)%></td>
         <td><%= order.created_at %></td>
+        <%= render partial: "status", locals: {order: order} %>
       </tr>
     <% end %>
   </table>

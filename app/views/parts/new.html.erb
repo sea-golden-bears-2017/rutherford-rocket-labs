@@ -1,0 +1,27 @@
+<h1>Add part to catalog</h1>
+
+<% if @part.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@part.errors.count, "error") %> prohibited
+        this part from being added:
+      </h3>
+      <ul>
+        <% @part.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-div">
+  <%= form_for :part, url: parts_path do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br/ >
+    <%= f.label :min %>:
+    <%= f.number_field :min %><br/ >
+    <%= f.label :max %>:
+    <%= f.number_field :max %><br/ >
+    <%= f.submit %>
+  <% end %>
+</div>
