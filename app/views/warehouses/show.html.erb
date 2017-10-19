@@ -1,0 +1,17 @@
+<div class="">
+  <h1><%= @warehouse.name %> in <%= @warehouse.location %></h1>
+  <table>
+    <tr>
+      <th>Part #</th>
+      <th>Name</th>
+      <th>Quantity</th>
+    </tr>
+    <% @warehouse.parts_warehouses.each do |parthouse| %>
+      <tr>
+        <td><%= parthouse.part.id %></td>
+        <td><%= parthouse.part.name%></td>
+        <td><%= parthouse.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
