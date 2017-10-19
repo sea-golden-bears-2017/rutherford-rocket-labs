@@ -11,21 +11,19 @@ Part.destroy_all
 Order.destroy_all
 OrdersPart.destroy_all
 
-
-parts = []
-orders = []
+conditions = [{submitted: false, processed: false}, {submitted: true, processed: false}]
 
 30.times do
-  part = Part.create(name: Faker::Science.element)
-  parts << part
+  Part.create(name: Faker::Science.element)
 end
-
 
 10.times do
-  order = Order.create(submitted: Faker::Boolean.boolean, processed: Faker::Boolean.boolean )
-  orders << order
+  Order.create(conditions.sample)
 end
 
+parts = Part.all
+orders = Order.all
+
 50.times do
-  OrdersPart.create(order: orders.sample, part: parts.sample, quantity_ordered: 4)
+  OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: 4)
 end
