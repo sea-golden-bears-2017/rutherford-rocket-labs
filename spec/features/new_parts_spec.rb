@@ -9,7 +9,7 @@ RSpec.feature "NewParts", type: :feature do
     fill_in 'Max', with: 200
 
     click_button('Save Part')
-    expect(page.has_content?('Save Part'))
+    expect(page).to have_text('Robot-interface IG-88')
 
   end
 
@@ -20,7 +20,7 @@ RSpec.feature "NewParts", type: :feature do
     fill_in 'Max', with: 200
 
     click_button('Save Part')
-    expect(page.has_content?("Name can't be blank"))
+    expect(page).to have_text("Name can't be blank")
 
   end
 end
