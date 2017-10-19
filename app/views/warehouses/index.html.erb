@@ -1,0 +1,13 @@
+<div class="">
+  <h1>Warehouses</h1>
+  <table class="list">
+    <tr>
+      <th>Location</th>
+    </tr>
+    <% @warehouses.each do |house| %>
+      <tr>
+        <td><%= link_to house.location, warehouse_path(house) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

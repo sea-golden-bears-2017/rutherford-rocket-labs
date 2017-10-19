@@ -10,10 +10,13 @@ require 'faker'
 Part.destroy_all
 Order.destroy_all
 OrdersPart.destroy_all
+Warehouse.destroy_all
+PartsWarehouse.destroy_all
 
 
 parts = []
 orders = []
+locations = []
 
 10.times do
   part = Part.create(name: Faker::Science.element)
@@ -27,6 +30,16 @@ end
 end
 
 
-5.times do
+50.times do
   OrdersPart.create(order: orders.sample, part: parts.sample, quantity_ordered: 4)
+end
+
+10.times do
+  locations << Warehouse.create(name: Faker::HarryPotter.character, location: Faker::HarryPotter.location)
+end
+
+locations.each do |location|
+  10.times do
+    PartsWarehouse.create(warehouse: location, part: parts.sample, quantity: 25)
+  end
 end

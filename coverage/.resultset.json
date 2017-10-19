@@ -18,6 +18,11 @@
         1,
         4,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
         null
       ],
       "/Users/apprentice/rutherford-rocket-labs/app/controllers/application_controller.rb": [
@@ -74,6 +79,21 @@
         1,
         1,
         1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/rutherford-rocket-labs/app/models/warehouse.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/rutherford-rocket-labs/app/models/parts_warehouse.rb": [
+        1,
+        1,
+        1,
         null
       ],
       "/Users/apprentice/rutherford-rocket-labs/app/channels/application_cable/channel.rb": [
@@ -83,6 +103,26 @@
         0
       ],
       "/Users/apprentice/rutherford-rocket-labs/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/rutherford-rocket-labs/app/controllers/orders_parts_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/rutherford-rocket-labs/app/controllers/warehouses_controller.rb": [
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -99,6 +139,6 @@
         0
       ]
     },
-    "timestamp": 1508439754
+    "timestamp": 1508456640
   }
 }
