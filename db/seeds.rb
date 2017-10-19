@@ -15,18 +15,17 @@ OrdersPart.destroy_all
 parts = []
 orders = []
 
-10.times do
+30.times do
   part = Part.create(name: Faker::Science.element)
   parts << part
 end
 
 
 10.times do
-  order = Order.create()
+  order = Order.create(submitted: Faker::Boolean.boolean, processed: Faker::Boolean.boolean )
   orders << order
 end
 
-
-5.times do
+50.times do
   OrdersPart.create(order: orders.sample, part: parts.sample, quantity_ordered: 4)
 end
