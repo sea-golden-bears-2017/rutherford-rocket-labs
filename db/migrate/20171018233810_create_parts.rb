@@ -5,7 +5,7 @@ class CreateParts < ActiveRecord::Migration[5.1]
       t.integer :min
       t.integer :max
 
-      t.timetamps
+      t.timestamps
     end
   end
 end
