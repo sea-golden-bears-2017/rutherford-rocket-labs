@@ -9,8 +9,11 @@
   </head>
 
   <body>
+    <header>
+
+    </header>
     <nav>
-      <ul>
+      <ul class="nav">
         <li><a href="/">Home</a></li>
         <li><a href="#">Warehouses</a></li>
         <li><a href="#">Parts</a></li>
@@ -19,6 +22,10 @@
         <li><a href="#">New Part</a></li>
       </ul>
     </nav>
-    <%= yield %>
+    <div class="yield">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
