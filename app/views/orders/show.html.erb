@@ -7,20 +7,24 @@
       <th>Expected</th>
       <th>Received</th>
     </tr>
-    <% @order.orders_parts.each do |orderpart| %>
-      <tr>
-        <td><%= Part.find(orderpart.part_id).id %></td>
-        <td><%= Part.find(orderpart.part_id).name %></td>
-        <td><%= orderpart.quantity_ordered %></td>
-        <% if orderpart.quantity_received %>
-          <td><%= orderpart.quantity_received %></td>
-        <% else %>
-          <td>
-            <input type="text" name="revieved">
-            <button type="submit" name="button">Submit</button>
-          </td>
-        <% end %>
-      </tr>
+    <% if !@order.orders_parts.empty? %>
+      <%= form_tag(order_path(@order), method: "patch") do %>
+        <% @order.orders_parts.each do |orderpart| %>
+          <tr>
+            <td><%= Part.find(orderpart.part_id).id %></td>
+            <td><%= Part.find(orderpart.part_id).name %></td>
+            <td><%= orderpart.quantity_ordered %></td>
+            <% if orderpart.quantity_received %>
+              <td><%= orderpart.quantity_received %></td>
+            <% else %>
+              <td>
+                <%= text_field_tag "part_id[#{orderpart.id}]" %>
+              </td>
+            <% end %>
+          </tr>
+          <% end %>
+        <%= submit_tag("Process") %>
+      <% end %>
     <% end %>
   </table>
 </div>
