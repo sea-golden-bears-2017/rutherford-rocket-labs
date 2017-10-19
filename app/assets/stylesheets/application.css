@@ -23,15 +23,9 @@ body {
   width: 100%;
 }
 
-header {
-  height: 200px;
-  width: 100%;
-  border: 1px solid purple;
-}
-
 nav {
   display: inline-block;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   position: relative;
   left: 0;
   padding-right: 0;
@@ -64,7 +58,7 @@ a {
 
 .container {
   width: 80%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   margin: 0 auto;
   text-align: center;
 }
