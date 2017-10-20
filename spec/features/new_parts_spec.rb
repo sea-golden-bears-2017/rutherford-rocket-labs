@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "NewParts", type: :feature do
-  scenario "Adds a new part to catalog" do
+  xscenario "Adds a new part to catalog" do
     visit "/"
     click_link "New Part"
     fill_in 'Name', with: 'Robot-interface IG-88'
@@ -13,7 +13,7 @@ RSpec.feature "NewParts", type: :feature do
 
   end
 
-  scenario "Adds renders errors if part not valid" do
+  xscenario "Adds renders errors if part not valid" do
     visit "/"
     click_link "New Part"
     fill_in 'Min', with: 10
