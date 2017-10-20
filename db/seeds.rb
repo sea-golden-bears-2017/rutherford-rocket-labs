@@ -36,13 +36,14 @@ locations.each do |location|
   end
 end
 
-orders = Order.all
 
 10.times do
   order = Order.new(conditions.sample)
   order.warehouse = locations.sample
   order.save
 end
+
+orders = Order.all
 
 50.times do
   OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: 4)

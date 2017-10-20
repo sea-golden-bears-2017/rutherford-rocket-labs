@@ -17,7 +17,7 @@
       <td class="list"><%= Part.find(orderpart.part_id).name %></td>
       <td class="list"><%= orderpart.quantity_ordered %></td>
       <td class="list">
-        <%= text_field_tag "part_id[#{orderpart.id}]" %>
+        <%= number_field_tag "part_id[#{orderpart.id}]" %>
       </td>
     </tr>
   <% end %>
