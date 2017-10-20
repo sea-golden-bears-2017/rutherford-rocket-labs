@@ -20,16 +20,23 @@ RSpec.describe Order, type: :model do
       order.processed = true
       expect(order.processed).to eq true
     end
+
   end
 
   describe "associations" do
     let!(:part1) { Part.create(name: "Test Part") }
     let!(:part2) { Part.create(name: "Test Part 2") }
+    let!(:warehouse) { Warehouse.create(name: "Ash", location: "Seattle") }
     let!(:order) { Order.create() }
     it "has many parts" do
       OrdersPart.create(order: order, part: part1, quantity_ordered: 3)
       OrdersPart.create(order: order, part: part2, quantity_ordered: 8)
       expect(order.parts.length).to eq 2
+    end
+
+    it "belongs to a location" do
+      order.warehouse = warehouse
+      expect(order.warehouse).to eq(warehouse)
     end
   end
 end

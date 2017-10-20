@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :orders_parts
   has_many :parts, through: :orders_parts
+  belongs_to :warehouse
 
   def houston_time
     time = self.created_at.in_time_zone("Central Time (US & Canada)")

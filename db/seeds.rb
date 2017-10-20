@@ -22,17 +22,8 @@ locations = []
   Part.create(name: Faker::Science.element)
 end
 
-10.times do
-  Order.create(conditions.sample)
-end
-
 parts = Part.all
-orders = Order.all
 
-
-50.times do
-  OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: 4)
-end
 
 10.times do
   locations << Warehouse.create(name: Faker::HarryPotter.character, location: Faker::HarryPotter.location)
@@ -42,4 +33,16 @@ locations.each do |location|
   10.times do
     PartsWarehouse.create(warehouse: location, part: parts.sample, quantity: 25)
   end
+end
+
+orders = Order.all
+
+10.times do
+  order = Order.new(conditions.sample)
+  order.warehouse = locations.sample
+  order.save
+end
+
+50.times do
+  OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: 4)
 end

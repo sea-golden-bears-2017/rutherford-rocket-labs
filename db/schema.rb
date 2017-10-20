@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171019222000) do
   create_table "orders", force: :cascade do |t|
     t.boolean "submitted", default: false
     t.boolean "processed", default: false
+    t.integer "warehouse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
