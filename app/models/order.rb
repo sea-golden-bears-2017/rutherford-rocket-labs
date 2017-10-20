@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
   has_many :orders_parts
   has_many :parts, through: :orders_parts
+  belongs_to :creator, class_name: :User, optional: true
+  belongs_to :processor, class_name: :User, optional: true
+  belongs_to :warehouse
 
   def houston_time(type)
     if type.to_s == 'created'
