@@ -46,5 +46,27 @@ end
 orders = Order.all
 
 50.times do
-  OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: 4)
+  OrdersPart.create!(order: orders.sample, part: parts.sample, quantity_ordered: rand(0..100))
+end
+
+10.times do
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: "ham",
+    username: Faker::Dessert.variety.delete(" ").downcase
+  )
+end
+
+Order.all.each do |order|
+  order.creator = User.all.sample
+  if rand(0..1) == 0 && order.submitted
+    order.orders_parts.each do |part|
+      part.quantity_received = rand(0..200)
+      part.save
+    end
+    order.processed = true
+    order.processor = User.all.sample
+  end
+  order.save
 end

@@ -11,11 +11,13 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     submitted = params[:order][:submitted] if params[:order]
+    user = User.find(session[:user_id])
 
     if submitted == "true"
       @order.submitted = true
       @order.save
     elsif params[:part_id]
+      @order.processor = user
       params[:part_id].each do |key, value|
         orderpart = OrdersPart.find(key)
         orderpart.quantity_received = value
@@ -36,7 +38,8 @@ class OrdersController < ApplicationController
 
   def create
     warehouse = Warehouse.find(params[:order][:warehouse].to_i)
-    @order = Order.create(warehouse: warehouse)
+    @order = Order.create(warehouse: warehouse, creator: User.find(session[:user_id]))
+
 
     redirect_to new_order_orders_part_path(@order)
   end
