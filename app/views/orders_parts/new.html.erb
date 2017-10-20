@@ -6,5 +6,6 @@
   <%= f.number_field :quantity %><br />
 
   <%= f.submit "Add Part" %>
-
 <% end %>
+
+<%= link_to "Review Order", order_path(@order) %>
