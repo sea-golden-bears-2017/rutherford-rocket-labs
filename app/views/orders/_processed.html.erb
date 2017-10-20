@@ -1,0 +1,26 @@
+<h1>Processed Order</h1>
+
+<table>
+  <tr class="list">
+    <th class="list">Part #</th>
+    <th class="list">Name</th>
+    <th class="list">Expected</th>
+    <th class="list">Received</th>
+  </tr>
+
+  <%= form_tag(order_path(@order), method: "patch") do %>
+
+  <% @order.orders_parts.each do |orderpart| %>
+
+    <tr class="list">
+      <td class="list"><%= orderpart.part_id %></td>
+      <td class="list"><%= Part.find(orderpart.part_id).name %></td>
+      <td class="list"><%= orderpart.quantity_ordered %></td>
+      <td class="list"><%= orderpart.quantity_received %></td> 
+    </tr>
+  <% end %>
+    <tr>
+      <td><%= submit_tag("Process") %></td>
+      <% end %>
+    </tr>
+  </table>

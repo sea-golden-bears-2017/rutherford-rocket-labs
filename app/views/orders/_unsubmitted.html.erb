@@ -1,3 +1,7 @@
+<h1>Unsubmitted Order</h1>
+
+<%= link_to "Add part to order", new_order_orders_part_path(order) %>
+
 <table>
   <tr class="list">
     <th class="list">Part #</th>
@@ -13,7 +17,6 @@
   <% end %>
 </table>
 
-<%= link_to "Add part to order", new_order_orders_part_path(order) %>
 
 <%= form_tag(order_path(order), method: "patch") do %>
   <%= hidden_field_tag "order[submitted]", "true" %>

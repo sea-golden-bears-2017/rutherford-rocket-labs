@@ -1,16 +1,9 @@
-
-<div class="order-headline">
-  <h1>Order</h1>
-  <table>
-    <tr>
-      <%= render partial: "status", locals: {order: @order} %>
-    </tr>
-  </table>
-</div>
-
 <div class="order-conditional-show">
-
   <% if !@order.submitted %>
-  <%= render partial: "submitted", locals: {order: @order} %>
+    <%= render partial: "unsubmitted", locals: {order: @order} %>
+  <% elsif @order.submitted && !@order.processed %>
+    <%= render partial: "unprocessed", locals: {order: @order} %>
+  <% elsif @order.submitted && @order.processed %>
+    <%= render partial: "processed", locals: {order: @order} %>
   <% end %>
 </div>
