@@ -4,12 +4,13 @@
     <tr>
       <th>Part #</th>
       <th>Name</th>
-      <th>Quantity</th>
+      <th>Stock</th>
     </tr>
     <% @parts.each do |part| %>
       <tr>
         <td> <%= part.id %></td>
-        <td><%= part.name %></td>
+        <td> <%= link_to part.name, part_path(part) %> </td>
+        <td><%= PartsWarehouse.where(part: part).count %></td>
       </tr>
     <% end %>
   </table>

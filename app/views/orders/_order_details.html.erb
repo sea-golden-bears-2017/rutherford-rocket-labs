@@ -1,8 +1,9 @@
 <div class="order-details">
   <% if order.submitted && !order.processed %>
-    <p>PLACED: <%= order.houston_time("created") %></p>
-  <% elsif order.submitted && order.processed %>
-    <p>PLACED: <%= order.houston_time("created") %></p>
-    <p>PROCESSED: <%= order.houston_time("updated") %></p>
+    <p>PLACED: <%= order.houston_time("created") %> by <%= order.creator.first_name %> <%= order.creator.last_name[0] %>  </p>
+  <% end %>
+  <% if order.submitted && order.processed %>
+    <p>PLACED: <%= order.houston_time("created") %> by <%= order.creator.first_name %> <%= order.creator.last_name[0] %>  </p>
+    <p>PROCESSED: <%= order.houston_time("updated") %> by <%= order.processor.first_name %> <%= order.processor.last_name[0] %> </p>
   <% end %>
 </div>

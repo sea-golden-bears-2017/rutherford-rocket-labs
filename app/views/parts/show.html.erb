@@ -1,9 +1,11 @@
 <div class="">
   <h1><%= @part.name %></h1>
+  <%= render partial: 'errors', locals: {errors: @errors} %>
   <table class="list">
     <tr>
       <th >Location</th>
-      <th >Quantity</th>
+      <th >Stock</th>
+      <th>Quantity to claim</th>
     </tr>
     <% @part.parts_warehouses.each do |parthouse| %>
       <tr>
@@ -12,12 +14,12 @@
         <% if parthouse.quantity > 0 %>
         <%= form_tag(part_path(@part), method: "patch") do %>
         <td class="list">
-          <%= text_field_tag "location_part[#{parthouse.warehouse.id}]" %>
+          <%= number_field_tag "location_part[#{parthouse.warehouse.id}]" %>
         </td>
-        <td><%= submit_tag("Claim") %></td>
+        <td style="border:none"><%= submit_tag("Claim") %></td>
         <% end %>
         <% if parthouse.quantity < 10 %>
-          <td class="low-quantity">Reorder!</td>
+          <td class="low-quantity">Stock low!</td>
         <% end %>
         <% end %>
       </tr>
