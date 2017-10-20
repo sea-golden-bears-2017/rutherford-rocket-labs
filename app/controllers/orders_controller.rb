@@ -9,16 +9,25 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    params[:part_id].each do |key, value|
-      orderpart = OrdersPart.find(key)
-      orderpart.quantity_received = value
-      orderpart.save
-    end
-    @order.submitted = true
-    @order.processed = true
-    @order.save
 
-    render :show
+    if params[:order][:submitted] == "true"
+      @order.submitted = true
+      @order.save
+      redirect_to order_path(@order)
+    end
+
+
+
+    # params[:part_id].each do |key, value|
+    #   orderpart = OrdersPart.find(key)
+    #   orderpart.quantity_received = value
+    #   orderpart.save
+    # end
+    # @order.submitted = true
+    # @order.processed = true
+    # @order.save
+    #
+
   end
 
   def new
