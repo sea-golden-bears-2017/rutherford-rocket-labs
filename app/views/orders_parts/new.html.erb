@@ -1,0 +1,10 @@
+<h1>Add part to order</h1>
+<%= form_for :orders_part, url: order_orders_parts_path do |f| %>
+  <%= f.label "Part #" %>:
+  <%= f.number_field :part_id %><br />
+  <%= f.label "Quantity" %>:
+  <%= f.number_field :quantity %><br />
+
+  <%= f.submit "Add Part" %>
+
+<% end %>
