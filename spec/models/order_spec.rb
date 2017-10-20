@@ -54,4 +54,24 @@ RSpec.describe Order, type: :model do
       expect(order1.warehouse).to eq(warehouse)
     end
   end
+  describe "houston_time" do
+    let!(:user1) do
+      user1 = User.new(first_name: "Anna", last_name: "J", username: "annaj")
+      user1.password = 'password'
+      user1.save
+      user1
+    end
+    let!(:user2) do
+      user2 = User.new(first_name: "Ash", last_name: "J", username: "ashj")
+      user2.password = 'password'
+      user2.save
+      user2
+    end
+    let!(:warehouse) { Warehouse.create(location: "Seattle") }
+    let!(:order1) { Order.create(warehouse: warehouse, creator: user1, processor: user2) }
+    it "returns the time in houston_time" do
+      expect(order1.houston_time("created")).to include "Houston Time"
+      expect(order1.houston_time("updated")).to include "Houston Time"
+    end
+  end
 end
