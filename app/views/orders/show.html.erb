@@ -25,6 +25,9 @@
                 <%= text_field_tag "part_id[#{orderpart.id}]" %>
               </td>
             <% end %>
+            <% if @order.processed %>
+              <%= render partial: "discrepency", locals: {expected: orderpart.quantity_ordered, received: orderpart.quantity_received} %>
+            <% end %>
           </tr>
           <% end %>
           <tr>

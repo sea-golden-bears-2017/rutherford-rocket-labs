@@ -145,7 +145,7 @@ td.low-quantity {
   color: red;
 }
 td.order-status {
-  border-radius: 15px;
+  border-radius: 6px;
   border: 1px solid black;
   font-size: 80%;
   text-align: center;

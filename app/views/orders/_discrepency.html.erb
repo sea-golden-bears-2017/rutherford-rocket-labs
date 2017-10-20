@@ -1,0 +1,9 @@
+<% if expected > received %>
+  <td class="deficit">
+    Deficit: <%= expected - received %>
+  </td>
+<% elsif expected < received %>
+  <td class="surplus">
+    Surplus: <%= received - expected %>
+  </td>
+<% end %>
