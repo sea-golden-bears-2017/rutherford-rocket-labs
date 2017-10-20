@@ -1,0 +1,8 @@
+<div class="order-details">
+  <% if order.submitted && !order.processed %>
+    <p>PLACED: <%= order.houston_time("created") %></p>
+  <% elsif order.submitted && order.processed %>
+    <p>PLACED: <%= order.houston_time("created") %></p>
+    <p>PROCESSED: <%= order.houston_time("updated") %></p>
+  <% end %>
+</div>

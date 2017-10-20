@@ -70,6 +70,7 @@ body {
   position: absolute;
   width: 100%;
   max-width: 1000px;
+  min-width: 870px;
   font-family: 'Kanit', medium;
 }
 
@@ -113,6 +114,10 @@ a {
   /*border: 1px solid black;*/
   margin: 0 auto;
   text-align: center;
+}
+
+table {
+  margin: 0 auto;
 }
 
 
