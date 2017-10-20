@@ -21,17 +21,27 @@
       <div class="logo">  <%= image_tag("logo.png") %> </div>
 
     </header>
-    <nav>
-      <ul class="nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/warehouses">Warehouses</a></li>
-        <li><a href="/orders">Orders</a></li>
-        <li><a href="/orders/new">New Order</a></li>
-        <li><a href="/parts">Parts</a></li>
-        <li><a href="/parts/new">New Part</a></li>
-      </ul>
-    </nav>
+    <% if session[:user_id] %>
+      <nav>
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/warehouses">Warehouses</a></li>
+          <li><a href="/orders">Orders</a></li>
+          <li><a href="/orders/new">New Order</a></li>
+          <li><a href="/parts">Parts</a></li>
+          <li><a href="/parts/new">New Part</a></li>
+        </ul>
+      </nav>
+    <% end %>
     <div class="yield">
+      <% if session[:user_id] %>
+        <div class="user-details">
+          <p><%= User.find(session[:user_id]).username %></p>
+          <%= form_tag(session_path(session[:user_id]), method: "delete") do %>
+            <%= submit_tag "logout" %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="container">
         <%= yield %>
       </div>

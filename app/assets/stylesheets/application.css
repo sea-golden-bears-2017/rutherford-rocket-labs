@@ -76,7 +76,6 @@ body {
 
 nav {
   display: inline-block;
-  /*border: 1px solid red;*/
   position: relative;
   left: 0;
   padding-right: 0;
@@ -87,6 +86,17 @@ nav {
   min-width: 111px;
   border-right: solid 1px #FF00FF;
   text-align: right;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-details p {
+  margin-right: 0.5rem;
 }
 
 ul {
