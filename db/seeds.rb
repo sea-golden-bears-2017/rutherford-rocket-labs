@@ -40,6 +40,7 @@ end
 
 locations.each do |location|
   10.times do
-    PartsWarehouse.create(warehouse: location, part: parts.sample, quantity: 25)
+    num = rand(5..25)
+    PartsWarehouse.create(warehouse: location, part: parts.sample, quantity: num)
   end
 end

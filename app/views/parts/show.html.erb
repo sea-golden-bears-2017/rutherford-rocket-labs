@@ -1,0 +1,19 @@
+<div class="">
+  <h1><%= @part.name %></h1>
+  <table class="list">
+    <tr>
+      <th >Location</th>
+      <th >Quantity</th>
+    </tr>
+    <% @part.parts_warehouses.each do |parthouse| %>
+      <tr>
+        <td ><%= parthouse.warehouse.location %></td>
+        <% if parthouse.quantity < 10 %>
+          <td class="list low-quantity"><%= parthouse.quatity%>Reorder!</td>
+        <%else%>
+          <td ><%= parthouse.quantity%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

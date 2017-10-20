@@ -14,7 +14,9 @@ class PartsController < ApplicationController
     else
       render 'new'
     end
-
+  end
+  def show
+    @part = Part.find(params[:id])
   end
 
 private

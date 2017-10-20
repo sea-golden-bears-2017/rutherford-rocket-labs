@@ -103,6 +103,9 @@ ul {
   float: right;
 }
 
+.low-quantity {
+  color: red;
+}
 a {
   color: black;
   text-decoration: none;
