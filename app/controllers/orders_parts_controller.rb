@@ -1,3 +1,0 @@
-class OrdersPartsController < ApplicationController
-  
-end

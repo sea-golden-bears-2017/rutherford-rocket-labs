@@ -16,7 +16,8 @@ class OrdersController < ApplicationController
     end
     @order.submitted = true
     @order.processed = true
-    p @order
+    @order.save
+
     render :show
   end
 end
