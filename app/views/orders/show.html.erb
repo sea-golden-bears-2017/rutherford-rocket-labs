@@ -28,13 +28,17 @@
             <% end %>
           </tr>
           <% end %>
-          <% if !@order.submitted %>
+          <tr>
+            <td>
+            <% if !@order.submitted %>
             <%= submit_tag("Submit") %>
-          <% elsif @order.submitted && !@order.processed %>
+            <% elsif @order.submitted && !@order.processed %>
             <%= submit_tag("Process") %>
-          <% elsif @order.processed && @order.submitted %>
-            
-          <% end %>
+            <% elsif @order.processed && @order.submitted %>
+
+            <% end %>
+            </td>
+          </tr>
       <% end %>
     <% end %>
   </table>
