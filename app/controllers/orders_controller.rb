@@ -20,4 +20,8 @@ class OrdersController < ApplicationController
 
     render :show
   end
+
+  def new
+    @order = Order.new
+  end
 end
