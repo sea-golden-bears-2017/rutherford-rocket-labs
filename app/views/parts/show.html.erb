@@ -1,5 +1,6 @@
 <div class="">
   <h1><%= @part.name %></h1>
+  <%= render partial: 'errors', locals: {errors: @errors} %>
   <table class="list">
     <tr>
       <th >Location</th>
