@@ -28,8 +28,9 @@ RSpec.describe Part, type: :model do
 
   describe "associations" do
     let!(:part) { Part.create(name: "Test Part") }
-    let!(:order1) { Order.create() }
-    let!(:order2) { Order.create() }
+    let!(:warehouse) {Warehouse.create(name: "Storage B", location: "Houston")}
+    let!(:order1) { Order.create(warehouse: warehouse) }
+    let!(:order2) { Order.create(warehouse: warehouse) }
     it "has many orders" do
       OrdersPart.create(order: order1, part: part, quantity_ordered: 3)
       OrdersPart.create(order: order2, part: part, quantity_ordered: 8)

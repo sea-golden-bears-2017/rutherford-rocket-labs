@@ -27,14 +27,14 @@ RSpec.describe Order, type: :model do
     let!(:part1) { Part.create(name: "Test Part") }
     let!(:part2) { Part.create(name: "Test Part 2") }
     let!(:warehouse) { Warehouse.create(name: "Ash", location: "Seattle") }
-    let!(:order) { Order.create() }
+    let!(:order) { Order.create(warehouse: warehouse) }
     it "has many parts" do
       OrdersPart.create(order: order, part: part1, quantity_ordered: 3)
       OrdersPart.create(order: order, part: part2, quantity_ordered: 8)
       expect(order.parts.length).to eq 2
     end
 
-    it "belongs to a location" do
+    it "belongs to a warehouse" do
       order.warehouse = warehouse
       expect(order.warehouse).to eq(warehouse)
     end
