@@ -27,10 +27,23 @@ RSpec.describe Part, type: :model do
   end
 
   describe "associations" do
+    let!(:user1) do
+      user1 = User.new(first_name: "Anna", last_name: "J", username: "annaj")
+      user1.password = 'password'
+      user1.save
+      user1
+    end
+    let!(:user2) do
+      user2 = User.new(first_name: "Ash", last_name: "J", username: "ashj")
+      user2.password = 'password'
+      user2.save
+      user2
+    end
     let!(:part) { Part.create(name: "Test Part") }
     let!(:warehouse) {Warehouse.create(name: "Storage B", location: "Houston")}
-    let!(:order1) { Order.create(warehouse: warehouse) }
-    let!(:order2) { Order.create(warehouse: warehouse) }
+    let!(:order1) { Order.create(warehouse: warehouse, creator: user1, processor: user2) }
+    let!(:order2) { Order.create(warehouse: warehouse, creator: user2, processor: user1) }
+
     it "has many orders" do
       OrdersPart.create(order: order1, part: part, quantity_ordered: 3)
       OrdersPart.create(order: order2, part: part, quantity_ordered: 8)

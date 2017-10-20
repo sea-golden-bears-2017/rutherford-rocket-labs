@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019222000) do
+ActiveRecord::Schema.define(version: 20171020030236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(version: 20171019222000) do
   create_table "orders", force: :cascade do |t|
     t.boolean "submitted", default: false
     t.boolean "processed", default: false
+    t.integer "creator_id"
+    t.integer "processor_id"
     t.integer "warehouse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_orders_on_creator_id"
+    t.index ["processor_id"], name: "index_orders_on_processor_id"
   end
 
   create_table "orders_parts", force: :cascade do |t|
@@ -50,6 +54,16 @@ ActiveRecord::Schema.define(version: 20171019222000) do
     t.datetime "updated_at", null: false
     t.index ["part_id"], name: "index_parts_warehouses_on_part_id"
     t.index ["warehouse_id"], name: "index_parts_warehouses_on_warehouse_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "username", null: false
+    t.boolean "admin", default: false
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "warehouses", force: :cascade do |t|
