@@ -1,48 +1,10 @@
-<div class="">
-  <% if !@order.processed %>
-      <h1>Process Order #<%= @order.id %></h1>
-    <% else %>
-      <h1>Order #<%= @order.id %></h1>
-    <% end %>
-  <table>
-    <tr class="list">
-      <th class="list">Part #</th>
-      <th class="list">Name</th>
-      <th class="list">Expected</th>
-      <th class="list">Received</th>
-    </tr>
-    <% if !@order.orders_parts.empty? %>
-      <%= form_tag(order_path(@order), method: "patch") do %>
-        <% @order.orders_parts.each do |orderpart| %>
-          <tr class="list">
-            <td class="list"><%= orderpart.part_id %></td>
-            <td class="list"><%= Part.find(orderpart.part_id).name %></td>
-            <td class="list"><%= orderpart.quantity_ordered %></td>
-            <% if orderpart.quantity_received %>
-              <td class="list"><%= orderpart.quantity_received %></td>
-            <% else %>
-              <td class="list">
-                <%= text_field_tag "part_id[#{orderpart.id}]" %>
-              </td>
-            <% end %>
-            <% if @order.processed %>
-              <%= render partial: "discrepency", locals: {expected: orderpart.quantity_ordered, received: orderpart.quantity_received} %>
-            <% end %>
-          </tr>
-          <% end %>
-          <tr>
-            <td>
-            <% if !@order.submitted %>
-            <%= submit_tag("Submit") %>
-            <% elsif @order.submitted && !@order.processed %>
-            <%= submit_tag("Process") %>
-            <% elsif @order.processed && @order.submitted %>
-            <% end %>
-            </td>
-          </tr>
-      <% end %>
-    <% end %>
-  </table>
-  <%= render partial: "order_details", locals: { order: @order } %>
-
+<div class="order-conditional-show">
+  <% if !@order.submitted %>
+    <%= render partial: "unsubmitted", locals: {order: @order} %>
+  <% elsif @order.submitted && !@order.processed %>
+    <%= render partial: "unprocessed", locals: {order: @order} %>
+  <% elsif @order.submitted && @order.processed %>
+    <%= render partial: "processed", locals: {order: @order} %>
+  <% end %>
 </div>
+<%= render partial: "order_details", locals: { order: @order } %>

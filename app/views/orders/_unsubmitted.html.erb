@@ -1,0 +1,24 @@
+<h1>Unsubmitted Order</h1>
+
+<%= link_to "Add part to order", new_order_orders_part_path(order) %>
+
+<table>
+  <tr class="list">
+    <th class="list">Part #</th>
+    <th class="list">Name</th>
+    <th class="list">Expected</th>
+  </tr>
+<% order.orders_parts.each do |orderpart| %>
+  <tr class="list">
+    <td class="list"><%= orderpart.part_id %></td>
+    <td class="list"><%= Part.find(orderpart.part_id).name %></td>
+    <td class="list"><%= orderpart.quantity_ordered %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<%= form_tag(order_path(order), method: "patch") do %>
+  <%= hidden_field_tag "order[submitted]", "true" %>
+  <%= submit_tag("Submit") %>
+<% end %>
