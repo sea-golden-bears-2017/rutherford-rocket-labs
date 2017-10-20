@@ -4,7 +4,8 @@
     <tr >
       <th>Part #</th>
       <th>Name</th>
-      <th>Quantity</th>
+      <th>Stock</th>
+      <th>Quantity to claim</th>
     </tr>
     <% @warehouse.parts_warehouses.order('part_id ASC').each do |parthouse| %>
       <tr>
@@ -19,7 +20,7 @@
         <td><%= submit_tag("Claim") %></td>
         <% end %>
         <% if parthouse.quantity < 10 %>
-          <td class="low-quantity">Reorder!</td>
+          <td class="low-quantity">Stock low!</td>
         <% end %>
       </tr>
       <% end %>
