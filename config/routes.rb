@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :orders_parts, only: :update
-  resources :warehouses, only: [:index, :show]
+  resources :warehouses, only: [:index, :show, :update]
 end

@@ -36,10 +36,10 @@ RSpec.describe Order, type: :model do
       user2.save
       user2
     end
+    let!(:warehouse) { Warehouse.create(location: "Seattle") }
     let!(:order1) { Order.create(warehouse: warehouse, creator: user1, processor: user2) }
     let!(:part1) { Part.create(name: "Test Part") }
     let!(:part2) { Part.create(name: "Test Part 2") }
-    let!(:warehouse) { Warehouse.create(name: "Ash", location: "Seattle") }
     it "has many parts" do
       OrdersPart.create(order: order1, part: part1, quantity_ordered: 3)
       OrdersPart.create(order: order1, part: part2, quantity_ordered: 8)

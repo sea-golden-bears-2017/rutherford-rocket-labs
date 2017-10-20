@@ -26,7 +26,7 @@ parts = Part.all
 
 
 10.times do
-  locations << Warehouse.create(name: Faker::HarryPotter.character, location: Faker::HarryPotter.location)
+  locations << Warehouse.create(location: Faker::Address.city)
 end
 
 locations.each do |location|

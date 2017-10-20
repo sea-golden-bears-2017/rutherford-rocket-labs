@@ -9,15 +9,15 @@
       <tr>
         <td ><%= link_to parthouse.warehouse.location, warehouse_path(parthouse.warehouse) %></td>
         <td><%= parthouse.quantity%></td>
-        <% if parthouse.quantity < 10 %>
-          <td class="low-quantity">Reorder!</td>
-        <% end %>
         <% if parthouse.quantity > 0 %>
         <%= form_tag(part_path(@part), method: "patch") do %>
         <td class="list">
           <%= text_field_tag "location_part[#{parthouse.warehouse.id}]" %>
         </td>
         <td><%= submit_tag("Claim") %></td>
+        <% end %>
+        <% if parthouse.quantity < 10 %>
+          <td class="low-quantity">Reorder!</td>
         <% end %>
         <% end %>
       </tr>
