@@ -16,7 +16,7 @@
         <% if parthouse.quantity > 0 %>
         <%= form_tag(warehouse_path(parthouse.part), method: "patch") do %>
         <td class="list">
-          <%= text_field_tag "location_part[#{parthouse.warehouse.id}]" %>
+          <%= number_field_tag "location_part[#{parthouse.warehouse.id}]" %>
         </td>
         <td><%= submit_tag("Claim") %></td>
         <% end %>

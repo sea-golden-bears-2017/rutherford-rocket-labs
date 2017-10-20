@@ -12,11 +12,14 @@ class WarehousesController < ApplicationController
     params[:location_part].each do |key,value|
       @warehouse = Warehouse.find(key)
       update = PartsWarehouse.find_by(part: @part, warehouse: @warehouse)
-      if update.quantity >= value.to_i
+
+      if update.quantity < value.to_i
+        @errors = ['Quantity requested cannot be greater than the current quantity.']
+      elsif value.to_i < 1
+        @errors = ['Quantity requested must be more than 1']
+      else
         update.quantity = update.quantity - value.to_i
         update.save
-      else
-        @errors = ['Quantity requested cannot be greater than the current quantity.']
       end
     end
     if @errors
