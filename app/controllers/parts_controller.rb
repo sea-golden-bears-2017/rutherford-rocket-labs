@@ -18,6 +18,17 @@ class PartsController < ApplicationController
   def show
     @part = Part.find(params[:id])
   end
+  def update
+    @part = Part.find(params[:id])
+    params[:location_part].each do |key,value|
+      warehouse = Warehouse.find(key)
+      update = PartsWarehouse.find_by(part: @part, warehouse: warehouse)
+      update.quantity = update.quantity - value.to_i
+      update.save
+    end
+
+    render :'show'
+  end
 
 private
   def part_params

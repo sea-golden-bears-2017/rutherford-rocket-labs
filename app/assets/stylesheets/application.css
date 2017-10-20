@@ -103,9 +103,6 @@ ul {
   float: right;
 }
 
-.low-quantity {
-  color: red;
-}
 a {
   color: black;
   text-decoration: none;
@@ -143,7 +140,10 @@ a {
 #error_explanation{
   color: red;
 }
-
+td.low-quantity {
+  border: none;
+  color: red;
+}
 td.order-status {
   border-radius: 15px;
   border: 1px solid black;

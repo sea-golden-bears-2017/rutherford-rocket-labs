@@ -16,7 +16,6 @@
         <% @order.orders_parts.each do |orderpart| %>
           <tr class="list">
             <td class="list"><%= orderpart.part_id %></td>
-            <% p orderpart %>
             <td class="list"><%= Part.find(orderpart.part_id).name %></td>
             <td class="list"><%= orderpart.quantity_ordered %></td>
             <% if orderpart.quantity_received %>

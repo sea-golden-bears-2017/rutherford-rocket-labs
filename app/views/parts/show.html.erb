@@ -7,11 +7,18 @@
     </tr>
     <% @part.parts_warehouses.each do |parthouse| %>
       <tr>
-        <td ><%= parthouse.warehouse.location %></td>
+        <td ><%= link_to parthouse.warehouse.location, warehouse_path(parthouse.warehouse) %></td>
+        <td><%= parthouse.quantity%></td>
         <% if parthouse.quantity < 10 %>
-          <td class="list low-quantity"><%= parthouse.quatity%>Reorder!</td>
-        <%else%>
-          <td ><%= parthouse.quantity%></td>
+          <td class="low-quantity">Reorder!</td>
+        <% end %>
+        <% if parthouse.quantity > 0 %>
+        <%= form_tag(part_path(@part), method: "patch") do %>
+        <td class="list">
+          <%= text_field_tag "location_part[#{parthouse.warehouse.id}]" %>
+        </td>
+        <td><%= submit_tag("Claim") %></td>
+        <% end %>
         <% end %>
       </tr>
     <% end %>
