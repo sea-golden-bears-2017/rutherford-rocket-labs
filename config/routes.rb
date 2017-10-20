@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   resources :orders_parts, only: :update
   resources :warehouses, only: [:index, :show, :update]
+
+  resources :sessions, only: [:new, :create, :destroy]
 end

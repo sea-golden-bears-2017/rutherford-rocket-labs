@@ -1,0 +1,16 @@
+<% if session[:user_id] %>
+  <nav>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/warehouses">Warehouses</a></li>
+      <li><a href="/orders">Orders</a></li>
+      <% if User.find(session[:user_id]).admin %>
+        <li><a href="/orders/new">New Order</a></li>
+      <% end %>
+      <li><a href="/parts">Parts</a></li>
+      <% if User.find(session[:user_id]).admin %>
+        <li><a href="/parts/new">New Part</a></li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>
