@@ -1,0 +1,11 @@
+<div class="order-details">
+  <% if @order.submitted && !@order.processed %>
+    <p>PLACED: <%= @order.houston_time %></p>
+    <%= render partial: "status", locals: { order: @order } %>
+  <% elsif @order.submitted && @order.processed %>
+    <p>PLACED: <%= @order.houston_time %></p>
+    <p>PROCESSED: <%= @order.houston_time %></p>
+    <!-- <p>PLACED BY: <%= @order.houston_time %></p> -->
+    <!-- <p>PROCESSED BY: <%= @order.houston_time %></p> -->
+  <% end %>
+</div>

@@ -37,11 +37,12 @@
             <% elsif @order.submitted && !@order.processed %>
             <%= submit_tag("Process") %>
             <% elsif @order.processed && @order.submitted %>
-
             <% end %>
             </td>
           </tr>
       <% end %>
     <% end %>
   </table>
+  
+
 </div>
