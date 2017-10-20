@@ -1,7 +1,7 @@
 <div class="">
   <h1><%= @warehouse.name %> in <%= @warehouse.location %></h1>
-  <table>
-    <tr>
+  <table class="list">
+    <tr >
       <th>Part #</th>
       <th>Name</th>
       <th>Quantity</th>
@@ -9,9 +9,20 @@
     <% @warehouse.parts_warehouses.each do |parthouse| %>
       <tr>
         <td><%= parthouse.part.id %></td>
-        <td><%= parthouse.part.name%></td>
+        <td><%= link_to parthouse.part.name, part_path(parthouse.part)%></td>
         <td><%= parthouse.quantity %></td>
+        <% if parthouse.quantity < 10 %>
+          <td class="low-quantity">Reorder!</td>
+        <% end %>
+        <% if parthouse.quantity > 0 %>
+        <%= form_tag(part_path(parthouse.part), method: "patch") do %>
+        <td class="list">
+          <%= text_field_tag "location_part[#{parthouse.warehouse.id}]" %>
+        </td>
+        <td><%= submit_tag("Claim") %></td>
+        <% end %>
       </tr>
+      <% end %>
     <% end %>
   </table>
 </div>
