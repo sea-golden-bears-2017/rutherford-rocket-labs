@@ -18,7 +18,7 @@
         <td class="list">
           <%= number_field_tag "location_part[#{parthouse.warehouse.id}]" %>
         </td>
-        <td><%= submit_tag("Claim") %></td>
+        <td style="border:none"><%= submit_tag("Claim") %></td>
         <% end %>
         <% if parthouse.quantity < 10 %>
           <td class="low-quantity">Stock low!</td>
