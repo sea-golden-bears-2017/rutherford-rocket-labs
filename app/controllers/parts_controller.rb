@@ -26,7 +26,6 @@ class PartsController < ApplicationController
       update.quantity = update.quantity - value.to_i
       update.save
     end
-
     render :'show'
   end
 

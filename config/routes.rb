@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :update]
 
   resources :orders_parts, only: :update
-  resources :warehouses, only: [:index, :show]
+  resources :warehouses, only: [:index, :show, :update]
 end
