@@ -11,4 +11,11 @@ RSpec.describe OrdersController, type: :controller do
       expect(assigns[:orders]).to eq Order.all
     end
   end
+
+  describe "orders#new" do
+    before(:each) { get :new }
+    it "returns a 200 status" do
+      expect(response.status).to eq 200
+    end
+  end
 end
