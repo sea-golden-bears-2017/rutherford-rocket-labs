@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20171020030236) do
   create_table "orders", force: :cascade do |t|
     t.boolean "submitted", default: false
     t.boolean "processed", default: false
+    t.integer "creator_id"
+    t.integer "processor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_orders_on_creator_id"
+    t.index ["processor_id"], name: "index_orders_on_processor_id"
   end
 
   create_table "orders_parts", force: :cascade do |t|
