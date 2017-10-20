@@ -20,6 +20,7 @@ RSpec.describe Order, type: :model do
       order.processed = true
       expect(order.processed).to eq true
     end
+
   end
 
   describe "associations" do
@@ -35,15 +36,22 @@ RSpec.describe Order, type: :model do
       user2.save
       user2
     end
-    let!(:order1) { Order.create(creator: user1, processor: user2) }
+    let!(:order1) { Order.create(warehouse: warehouse, creator: user1, processor: user2) }
     let!(:part1) { Part.create(name: "Test Part") }
     let!(:part2) { Part.create(name: "Test Part 2") }
+    let!(:warehouse) { Warehouse.create(name: "Ash", location: "Seattle") }
     it "has many parts" do
       OrdersPart.create(order: order1, part: part1, quantity_ordered: 3)
       OrdersPart.create(order: order1, part: part2, quantity_ordered: 8)
       expect(order1.parts.length).to eq 2
     end
+
     it { should belong_to(:creator).class_name('User') }
     it { should belong_to(:processor).class_name('User') }
+
+    it "belongs to a warehouse" do
+      order1.warehouse = warehouse
+      expect(order1.warehouse).to eq(warehouse)
+    end
   end
 end

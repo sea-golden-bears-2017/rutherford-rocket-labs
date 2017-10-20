@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.boolean :processed, default: false
       t.integer :creator_id, index: true, foreign_key: true
       t.integer :processor_id, index: true, foreign_key: true
+      t.integer :warehouse_id
 
       t.timestamps
     end

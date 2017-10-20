@@ -40,8 +40,10 @@ RSpec.describe Part, type: :model do
       user2
     end
     let!(:part) { Part.create(name: "Test Part") }
-    let!(:order1) { Order.create(creator: user1, processor: user2) }
-    let!(:order2) { Order.create(creator: user2, processor: user1) }
+    let!(:warehouse) {Warehouse.create(name: "Storage B", location: "Houston")}
+    let!(:order1) { Order.create(warehouse: warehouse, creator: user1, processor: user2) }
+    let!(:order2) { Order.create(warehouse: warehouse, creator: user2, processor: user1) }
+
     it "has many orders" do
       OrdersPart.create(order: order1, part: part, quantity_ordered: 3)
       OrdersPart.create(order: order2, part: part, quantity_ordered: 8)

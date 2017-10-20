@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171020030236) do
     t.boolean "processed", default: false
     t.integer "creator_id"
     t.integer "processor_id"
+    t.integer "warehouse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_orders_on_creator_id"

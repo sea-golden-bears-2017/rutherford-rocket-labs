@@ -20,4 +20,17 @@ class OrdersController < ApplicationController
 
     render :show
   end
+
+  def new
+    warehouses = Warehouse.all
+    @warehouse_options = warehouses.map { |warehouse| [warehouse.location, warehouse.id] }
+
+  end
+
+  def create
+    warehouse = Warehouse.find(params[:order][:warehouse].to_i)
+    @order = Order.create(warehouse: warehouse)
+
+    redirect_to new_order_orders_part_path(@order)
+  end
 end
