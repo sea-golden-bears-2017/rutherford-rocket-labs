@@ -145,7 +145,10 @@ table {
 #error_explanation{
   color: red;
 }
-
+td.low-quantity {
+  border: none;
+  color: red;
+}
 td.order-status {
   border-radius: 6px;
   border: 1px solid black;
