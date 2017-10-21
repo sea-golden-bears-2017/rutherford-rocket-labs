@@ -70,3 +70,11 @@ Order.all.each do |order|
   end
   order.save
 end
+
+User.create(
+  first_name: "George",
+  last_name: "Rutherford III",
+  password: "rrl",
+  username: "gwr3",
+  admin: true
+)
