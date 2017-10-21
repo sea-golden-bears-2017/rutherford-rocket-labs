@@ -26,7 +26,7 @@
     <div class="yield">
       <% if session[:user_id] %>
         <div class="user-details">
-          <p><%= User.find(session[:user_id]).username %></p>
+          <p><%= User.find(session[:user_id]).first_name[0] %>. <%= User.find(session[:user_id]).last_name %></p>
           <%= form_tag(session_path(session[:user_id]), method: "delete") do %>
             <%= submit_tag "logout" %>
           <% end %>
