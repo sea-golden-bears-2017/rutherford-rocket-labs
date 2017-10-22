@@ -1,5 +1,5 @@
 deployment:
-  prod:
+  staging:
     branch: master
     heroku:
       appname: rutherford-rocket-labs # appname must not include upper-case characters
