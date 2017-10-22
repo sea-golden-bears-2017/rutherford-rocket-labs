@@ -9,7 +9,7 @@ class OrdersPartsController < ApplicationController
     part = Part.find(params[:orders_part][:part_id])
     quantity = params[:orders_part][:quantity].to_i
     @orders_part = OrdersPart.create(order: order, part: part, quantity_ordered: quantity)
-    redirect_to new_order_orders_part_path
+    redirect_to order_path(order)
   end
 
 end
