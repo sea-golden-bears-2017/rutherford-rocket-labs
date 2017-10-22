@@ -1,5 +1,6 @@
 deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: rutherford-rocket-labs # appname must not include upper-case characters
+  production:
+    branch: production
+    commands:
+      - git push git@heroku.com:rutherford-rocket-labs.git $CIRCLE_SHA1:master
+      - heroku run rake db:migrate db:seed --app rutherford-rocket-labs
