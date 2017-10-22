@@ -1,10 +1,10 @@
 <div class="order-conditional-show">
   <% if !@order.submitted %>
-    <%= render partial: "unsubmitted", locals: {order: @order} %>
+    <%= render partial: "unsubmitted", locals: {order: @order, errors: @errors} %>
   <% elsif @order.submitted && !@order.processed %>
-    <%= render partial: "unprocessed", locals: {order: @order} %>
+    <%= render partial: "unprocessed", locals: {order: @order, errors: @errors} %>
   <% elsif @order.submitted && @order.processed %>
-    <%= render partial: "processed", locals: {order: @order} %>
+    <%= render partial: "processed", locals: {order: @order, errors: @errors} %>
   <% end %>
 </div>
 <%= render partial: "order_details", locals: { order: @order } %>
