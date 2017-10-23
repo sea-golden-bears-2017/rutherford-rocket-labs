@@ -33,5 +33,9 @@ RSpec.describe WarehousesController do
        get :update, params: {id: part1.id, location_part:{warehouse.id => 50}}
       expect(response).to render_template(:show)
     end
+    it "shows errors if the quantity requested is less than 1" do
+      get :update, params: {id: part1.id, location_part:{warehouse.id => -2}}
+     expect(response).to render_template(:show)
+    end
   end
 end

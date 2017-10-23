@@ -43,6 +43,14 @@ RSpec.describe PartsController, type: :controller do
     it "returns a 200 status" do
       expect(response.status).to eq 200
     end
+    it "shows errors if the quantity requested is greater than current quantity" do
+         get :update, params: {id: part1.id, location_part:{warehouse.id => 50}}
+          expect(assigns[:errors]).to include("Quantity requested cannot be greater than the current quantity.")
+    end
+    it "shows errors if the quantity requested is less than 1" do
+         get :update, params: {id: part1.id, location_part:{warehouse.id => -2}}
+          expect(assigns[:errors]).to include("Quantity requested must be more than 1")
+    end
   end
 
 end
