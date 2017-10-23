@@ -1,0 +1,30 @@
+
+<% if @user.errors.any? %>
+  <ul id="error_explanation">
+    <% @user.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+
+
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label 'First Name' %>:
+  <%= f.text_field :first_name %><br/>
+
+  <%= f.label 'Last Name' %>:
+  <%= f.text_field :last_name %><br/>
+
+  <%= f.label 'Username' %>:
+  <%= f.text_field :username %><br/>
+
+  <%= f.label 'Password' %>:
+  <%= f.password_field :password %><br/>
+
+  <%= f.label 'Manager?' %>:
+  <%= f.check_box 'admin' %><br/>
+
+  <%= f.submit "Create User" %>
+
+<% end %>

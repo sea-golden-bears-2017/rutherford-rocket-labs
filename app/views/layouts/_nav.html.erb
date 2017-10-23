@@ -10,6 +10,9 @@
       <% if User.find(session[:user_id]).admin %>
         <li><a href="/parts/new">New Part</a></li>
       <% end %>
+      <% if User.find(session[:user_id]).admin %>
+        <li><a href="/users/new">New User</a></li>
+      <% end %>
     </ul>
   </nav>
 <% end %>

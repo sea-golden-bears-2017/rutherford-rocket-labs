@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :warehouses, only: [:index, :show, :update]
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users, only: [:new, :create]
 end

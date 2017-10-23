@@ -158,6 +158,7 @@ table {
 #error_explanation{
   color: red;
 }
+
 td.low-quantity {
   border: none;
   color: red;
