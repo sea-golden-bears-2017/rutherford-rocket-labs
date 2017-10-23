@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
+      flash[:success] = "Successfully created user #{@user.first_name} #{@user.last_name}"
       redirect_to root_path
     else
       render "new"

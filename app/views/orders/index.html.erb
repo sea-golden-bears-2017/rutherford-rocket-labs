@@ -1,5 +1,8 @@
 <div class="">
   <h1>Orders</h1>
+  <% if flash[:success] %>
+    <span style="color: #FF00FF;"><%= flash[:success] %></span>
+  <% end %>
   <table class="list">
     <tr>
       <th>Order #</th>

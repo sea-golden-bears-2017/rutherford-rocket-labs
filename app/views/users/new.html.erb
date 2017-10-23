@@ -1,4 +1,8 @@
 
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
+
 <% if @user.errors.any? %>
   <ul id="error_explanation">
     <% @user.errors.full_messages.each do |error| %>
