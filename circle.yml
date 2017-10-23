@@ -1,10 +1,6 @@
 deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: rutherford-rocket-labs-staging
   production:
-    branch: production
+    branch: master
     heroku:
       appname: rutherford-rocket-labs
     commands:
