@@ -3,4 +3,4 @@ deployment:
     branch: production
     commands:
       - git push git@heroku.com:rutherford-rocket-labs.git $CIRCLE_SHA1:master
-      - heroku run rake db:migrate db:seed --app rutherford-rocket-labs
+      - heroku run rake db:migrate --app rutherford-rocket-labs
