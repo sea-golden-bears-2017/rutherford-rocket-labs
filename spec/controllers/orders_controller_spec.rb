@@ -87,6 +87,16 @@ RSpec.describe OrdersController, type: :controller do
       get :update, params: {id: order1.id, part_id: {orderspart.id => 2}}
       expect((assigns[:order]).processed).to eq true
     end
+    it "gives an error if the quantity is not added" do
+      session[:user_id] = user1.id
+      get :update, params: {id: order1.id, part_id: {orderspart.id => ""}}
+      expect(assigns[:errors]).to eq(["Must add a quantity for every item"])
+    end
+    it "gives an error if the quantity is less than 1" do
+      session[:user_id] = user1.id
+      get :update, params: {id: order1.id, part_id: {orderspart.id => -5}}
+      expect(assigns[:errors]).to eq(["Cannot mark less than one item received"])
+    end
   end
 
 

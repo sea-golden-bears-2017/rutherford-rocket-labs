@@ -30,5 +30,13 @@ RSpec.describe OrdersPartsController, type: :controller do
       get :create, params: {order_id: order1.id, orders_part: {part_id: part1.id, quantity: 2}}
       expect(assigns[:orders_part]).to be_a(OrdersPart)
     end
+    it "gives error if part id entered is empty" do
+      get :create, params: {order_id: order1.id, orders_part: {part_id: "", quantity: 2}}
+      expect(assigns[:errors]).to eq(["Must enter a part number","Could not find part with id "])
+    end
+    it "gives error if part id entered is empty" do
+      get :create, params: {order_id: order1.id, orders_part: {part_id: part1.id, quantity: ""}}
+      expect(assigns[:errors]).to eq(["Must enter a quantity"])
+    end
   end
 end
