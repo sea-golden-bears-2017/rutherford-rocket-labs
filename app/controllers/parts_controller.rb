@@ -1,9 +1,12 @@
 class PartsController < ApplicationController
   def index
+    redirect_to new_session_path if !session[:user_id]
     @parts = Part.all
   end
 
   def new
+    redirect_to new_session_path if !session[:user_id]
+    redirect_to orders_path unless User.find(session[:user_id]).admin
     @part = Part.new
   end
 
@@ -15,9 +18,12 @@ class PartsController < ApplicationController
       render 'new'
     end
   end
+
   def show
+    redirect_to new_session_path if !session[:user_id]
     @part = Part.find(params[:id])
   end
+
   def update
     @part = Part.find(params[:id])
     params[:location_part].each do |key,value|

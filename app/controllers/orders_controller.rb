@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   def index
+    redirect_to new_session_path if !session[:user_id]
     @orders = Order.all
   end
 
   def show
+    redirect_to new_session_path if !session[:user_id]
     @order = Order.find(params[:id])
   end
 
@@ -47,6 +49,9 @@ class OrdersController < ApplicationController
   end
 
   def new
+    redirect_to new_session_path if !session[:user_id]
+    redirect_to orders_path unless User.find(session[:user_id]).admin
+
     warehouses = Warehouse.all
     @warehouse_options = warehouses.map { |warehouse| [warehouse.location, warehouse.id] }
 

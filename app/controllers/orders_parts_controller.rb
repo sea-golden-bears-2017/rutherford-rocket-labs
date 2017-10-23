@@ -1,6 +1,8 @@
 class OrdersPartsController < ApplicationController
 
   def new
+    redirect_to new_session_path if !session[:user_id]
+    redirect_to orders_path unless User.find(session[:user_id]).admin
     @order = Order.find(params[:order_id])
   end
 

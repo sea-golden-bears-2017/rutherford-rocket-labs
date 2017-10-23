@@ -21,7 +21,9 @@
       <div class="logo">  <%= image_tag("logo.png") %> </div>
 
     </header>
-    <%= render partial: "layouts/nav", locals: { session: session } %>
+    <% if session[:user_id] %>
+      <%= render partial: "layouts/nav", locals: { session: session } %>
+    <% end %>
 
     <div class="yield">
       <% if session[:user_id] %>

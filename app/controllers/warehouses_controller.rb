@@ -1,9 +1,11 @@
 class WarehousesController < ApplicationController
   def index
+    redirect_to new_session_path if !session[:user_id]
     @warehouses = Warehouse.all
   end
 
   def show
+    redirect_to new_session_path if !session[:user_id]
     @warehouse = Warehouse.find(params[:id])
   end
 
