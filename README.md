@@ -1,24 +1,11 @@
-# README
+# Rutherford Rocket Labs
+https://rutherford-rocket-labs.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An example inventory management system for workers to track what parts they have in different warehouse. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technologies: 
+* Ruby on Rails
+* Rspec
+* Capybara
+* BCrypt
+* CircleCI
